@@ -18,7 +18,7 @@ export const request = (method, url, body, queryParameters, form, config)=>{
   // let queryUrl = url+(keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '')
   if(body){
       return axios[method](queryUrl,body,config)
-  } else if (method === 'get') {
+  } else if (method === 'get' || method === 'delete') {
       return axios[method](queryUrl, config)
   } else {
       return axios[method](queryUrl,qs.stringify(form),config)
